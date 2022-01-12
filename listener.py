@@ -1,8 +1,25 @@
 import socket
 import pynput
+from time import sleep
 from pynput.keyboard import Key, Controller
 
 keyboard = Controller()
+
+def convert(branch):
+    if branch[0].upper() == "PRESS":
+        keyboard.press(branch[1])
+
+    if branch[0].upper() == "RELEASE":
+        keyboard.release(branch[1])
+
+    if branch[0].upper() == "TYPE":
+        branch[1] = branch[1].replace("_", " ")
+        for char in branch[1]:
+            keyboard.press(char)
+            keyboard.release(char)
+
+    if branch[0].upper() == "SLEEP":
+        sleep(int(branch[1]))
 
 ip = "0.0.0.0"
 port = 1234
@@ -16,68 +33,78 @@ with conn:
         data = conn.recv(1024)
         data = data.decode("utf8")
 
-        if data.startswith("key-combination:"):
-
-            if "0" in data:
-                keyboard.press(Key.enter)
-                keyboard.release(Key.enter)
-
-            if "1" in data:
-                keyboard.press(Key.backspace)
-                keyboard.release(Key.backspace)
-
-            if "2" in data:
-                keyboard.press(Key.esc)
-                keyboard.release(Key.esc)
-
-            if "3" in data:
-                keyboard.press(Key.cmd)
-                keyboard.release(Key.cmd)
-
-            if "4" in data:
-                keyboard.press(Key.tab)
-                keyboard.release(Key.tab)
-
-            if "5" in data:
-                keyboard.press(Key.up)
-                keyboard.release(Key.up)
-
-            if "6" in data:
-                keyboard.press(Key.down)
-                keyboard.release(Key.down)
-
-            if "7" in data:
-                keyboard.press(Key.left)
-                keyboard.release(Key.left)
-
-            if "8" in data:
-                keyboard.press(Key.right)
-                keyboard.release(Key.right)
-
-            if "9" in data:
-                with keyboard.pressed(Key.alt):
-                    keyboard.press(Key.f4)
-                    keyboard.release(Key.f4)
-
-            if "10" in data:
-                with keyboard.pressed(Key.ctrl):
-                    with keyboard.pressed(Key.shift):
-                        keyboard.press(Key.esc)
-                        keyboard.release(Key.esc)
-
-            if "11" in data:
-                with keyboard.pressed(Key.alt):
-                    keyboard.press(Key.tab)
-                    keyboard.release(Key.tab)
-
-            if "12" in data:
-                with keyboard.pressed(Key.cmd):
-                    keyboard.press("r")
-                    keyboard.release("r")
-
+        if data.upper() == "EXIT;":
+            conn.close()
+            break
+        
         else:
+            data = data.split(";")
+            data_branches = []
+
             for part in data:
-                for char in part:
-                    keyboard.press(char)
-                    keyboard.release(char)
+                new_branch = part.split()
+                data_branches.append(new_branch)
+
+            data_branches.pop()
+
+            for branch in data_branches:
+
+                if branch[1] == "key.shift":
+                    branch[1] = Key.shift
+
+                if branch[1] == "key.cmd":
+                    branch[1] = Key.cmd
+                
+                if branch[1] == "key.ctrl":
+                    branch[1] = Key.ctrl
+
+                if branch[1] == "key.tab":
+                    branch[1] = Key.tab
+
+                if branch[1] == "key.esc":
+                    branch[1] = Key.esc
+
+                if branch[1] == "key.enter":
+                    branch[1] = Key.enter
+
+                if branch[1] == "key.backspace":
+                    branch[1] = Key.backspace
+
+                if branch[1] == "key.f1":
+                    branch[1] = Key.f1
+
+                if branch[1] == "key.f2":
+                    branch[1] = Key.f2
+
+                if branch[1] == "key.f3":
+                    branch[1] = Key.f3
+
+                if branch[1] == "key.f4":
+                    branch[1] = Key.f4
+
+                if branch[1] == "key.f5":
+                    branch[1] = Key.f5
+
+                if branch[1] == "key.f6":
+                    branch[1] = Key.f6
+
+                if branch[1] == "key.f7":
+                    branch[1] = Key.f7
+
+                if branch[1] == "key.f8":
+                    branch[1] = Key.f8
+
+                if branch[1] == "key.f9":
+                    branch[1] = Key.f9
+
+                if branch[1] == "key.f10":
+                    branch[1] = Key.f10
+
+                if branch[1] == "key.f11":
+                    branch[1] = Key.f11
+
+                if branch[1] == "key.f12":
+                    branch[1] = Key.f12
+
+                convert(branch)
 
