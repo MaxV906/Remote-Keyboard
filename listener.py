@@ -6,6 +6,9 @@ from pynput.keyboard import Key, Controller
 keyboard = Controller()
 
 def convert(branch):
+
+    sep = "--"
+    
     if branch[0].upper() == "PRESS":
         keyboard.press(branch[1])
 
@@ -13,7 +16,8 @@ def convert(branch):
         keyboard.release(branch[1])
 
     if branch[0].upper() == "TYPE":
-        branch[1] = branch[1].replace("-s-", " ")
+        if sep in branch[1]:
+            branch[1] = branch[1].replace(sep, " ")
         for char in branch[1]:
             keyboard.press(char)
             keyboard.release(char)
@@ -51,6 +55,9 @@ with conn:
 
                 if branch[1] == "key.shift":
                     branch[1] = Key.shift
+
+                if branch[1] == "key.alt":
+                    branch[1] = Key.alt
 
                 if branch[1] == "key.cmd":
                     branch[1] = Key.cmd
