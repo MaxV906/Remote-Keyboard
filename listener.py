@@ -27,46 +27,49 @@ with conn:
                 keyboard.release(Key.backspace)
 
             if "2" in data:
+                keyboard.press(Key.cmd)
+                keyboard.release(Key.cmd)
+
+            if "3" in data:
+                keyboard.press(Key.tab)
+                keyboard.release(Key.tab)
+
+            if "4" in data:
+                keyboard.press(Key.up)
+                keyboard.release(Key.up)
+
+            if "5" in data:
+                keyboard.press(Key.down)
+                keyboard.release(Key.down)
+
+            if "6" in data:
+                keyboard.press(Key.left)
+                keyboard.release(Key.left)
+
+            if "7" in data:
+                keyboard.press(Key.right)
+                keyboard.release(Key.right)
+
+            if "8" in data:
                 with keyboard.pressed(Key.alt):
                     keyboard.press(Key.f4)
                     keyboard.release(Key.f4)
 
-            if "3" in data:
+            if "9" in data:
                 with keyboard.pressed(Key.ctrl):
                     with keyboard.pressed(Key.shift):
                         keyboard.press(Key.esc)
                         keyboard.release(Key.esc)
 
-            if "4" in data:
+            if "10" in data:
                 with keyboard.pressed(Key.alt):
                     keyboard.press(Key.tab)
                     keyboard.release(Key.tab)
 
-            if "5" in data:
-                keyboard.press(Key.cmd)
-                keyboard.release(Key.cmd)
-
-            if "6" in data:
-                keyboard.press(Key.tab)
-                keyboard.release(Key.tab)
-
-            if "7" in data:
-                keyboard.press(Key.up)
-                keyboard.release(Key.up)
-
-            if "8" in data:
-                keyboard.press(Key.down)
-                keyboard.release(Key.down)
-
-            if "9" in data:
-                keyboard.press(Key.left)
-                keyboard.release(Key.left)
-
-            if "10" in data:
-                keyboard.press(Key.right)
-                keyboard.release(Key.right)
-
-            
+            if "11" in data:
+                with keyboard.pressed(Key.cmd):
+                    keyboard.press("r")
+                    keyboard.release("r")
 
         else:
             for part in data:

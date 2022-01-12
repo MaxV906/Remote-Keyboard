@@ -14,7 +14,7 @@ def main():
             s.send(string.encode("utf8"))
 
         elif option == "2":
-            key_combination = input("\nChoose keys:\n1)Enter\n2)Backspace\n3)alt+f4\n4)ctrl+shift+esc\n5)alt+tab\n6)cmd\n7)tab\n8)up arrow\n9)down arrow\n10)left arrow\n11) right arrow\nYour answer: ")
+            key_combination = input("\nChoose keys:\n1)Enter\n2)Backspace\n3)cmd\n4)tab\n5)up arrow\n6)down arrow\n7)left arrow\n8) right arrow\n9)alt+f4\n10)ctrl+shift+esc\n11)alt+tab\n12)cmd+r\nYour answer: ")
             string = "key-combination: " + str(int(key_combination) - 1)
             s.send(string.encode("utf8"))
 
