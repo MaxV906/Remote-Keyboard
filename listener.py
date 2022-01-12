@@ -37,7 +37,7 @@ with conn:
         data = conn.recv(1024)
         data = data.decode("utf8")
 
-        if data.upper() == "EXIT;":
+        if data.upper() == "CLOSE;":
             conn.close()
             break
         
