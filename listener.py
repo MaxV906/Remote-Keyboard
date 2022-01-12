@@ -5,8 +5,6 @@ from pynput.keyboard import Key, Controller
 
 keyboard = Controller()
 
-key_combos = ["alt+f4", "ctrl+shift+esc", "alt+tab", "cmd", "tab", "up arrow", "down arrow", "left arrow", "right arrow"]
-
 ip = "0.0.0.0"
 port = 1234
 s = socket.socket()
@@ -63,6 +61,10 @@ with conn:
             if "8" in data:
                 keyboard.press(Key.right)
                 keyboard.release(Key.right)
+
+            if "9" in data:
+                keyboard.press(Key.enter)
+                keyboard.release(Key.enter)
 
         else:
             for part in data:
