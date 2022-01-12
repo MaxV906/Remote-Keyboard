@@ -7,7 +7,7 @@ keyboard = Controller()
 
 def convert(branch):
 
-    sep = "--"
+    sep = "---"
     
     if branch[0].upper() == "PRESS":
         keyboard.press(branch[1])
