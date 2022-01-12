@@ -79,6 +79,18 @@ while True:
                     if branch[1] == "key.backspace":
                         branch[1] = Key.backspace
 
+                    if branch[1] == "key.up":
+                        branch[1] = Key.up
+                    
+                    if branch[1] == "key.down":
+                        branch[1] = Key.down
+
+                    if branch[1] == "key.left":
+                        branch[1] = Key.left
+
+                    if branch[1] == "key.right":
+                        branch[1] = Key.right
+
                     if branch[1] == "key.f1":
                         branch[1] = Key.f1
 
