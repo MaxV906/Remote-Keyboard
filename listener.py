@@ -13,7 +13,7 @@ def convert(branch):
         keyboard.release(branch[1])
 
     if branch[0].upper() == "TYPE":
-        branch[1] = branch[1].replace("_", " ")
+        branch[1] = branch[1].replace("-s-", " ")
         for char in branch[1]:
             keyboard.press(char)
             keyboard.release(char)
