@@ -5,8 +5,11 @@ port = 1234
 
 def main():
     while True:
-        option = input("Choose a method:\n1)Send string\n2)Send keys\nYour answer: ")
-        if option == "1":
+        option = input("Choose a method:\n1)Send string\n2)Send keys\n0)Exit\nYour answer: ")
+        if option == "0":
+            break
+
+        elif option == "1":
             string = input("\nString you want to send: ")
             s.send(string.encode("utf8"))
         else:
