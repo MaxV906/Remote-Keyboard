@@ -1,6 +1,5 @@
 import socket
 import pynput
-from time import sleep
 from pynput.keyboard import Key, Controller
 
 keyboard = Controller()
@@ -17,8 +16,6 @@ with conn:
         data = conn.recv(1024)
         data = data.decode("utf8")
 
-        print(data)
-
         if data.startswith("key-combination:"):
 
             if "0" in data:
@@ -27,7 +24,6 @@ with conn:
                     keyboard.release(Key.f4)
 
             if "1" in data:
-                print("Initiated")
                 with keyboard.pressed(Key.ctrl):
                     with keyboard.pressed(Key.shift):
                         keyboard.press(Key.esc)
@@ -71,5 +67,4 @@ with conn:
                 for char in part:
                     keyboard.press(char)
                     keyboard.release(char)
-                sleep(0.7)
 
