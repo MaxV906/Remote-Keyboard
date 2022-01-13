@@ -55,76 +55,76 @@ while True:
 
                 for branch in data_branches:
 
-                    if branch[1] == "key.shift":
+                    if branch[1] == "shift":
                         branch[1] = Key.shift
 
-                    if branch[1] == "key.alt":
+                    if branch[1] == "alt":
                         branch[1] = Key.alt
 
-                    if branch[1] == "key.cmd":
+                    if branch[1] == "cmd":
                         branch[1] = Key.cmd
                     
-                    if branch[1] == "key.ctrl":
+                    if branch[1] == "ctrl":
                         branch[1] = Key.ctrl
 
-                    if branch[1] == "key.tab":
+                    if branch[1] == "tab":
                         branch[1] = Key.tab
 
-                    if branch[1] == "key.esc":
+                    if branch[1] == "esc":
                         branch[1] = Key.esc
 
-                    if branch[1] == "key.enter":
+                    if branch[1] == "enter":
                         branch[1] = Key.enter
 
-                    if branch[1] == "key.backspace":
+                    if branch[1] == "backspace":
                         branch[1] = Key.backspace
 
-                    if branch[1] == "key.up":
+                    if branch[1] == "up":
                         branch[1] = Key.up
                     
-                    if branch[1] == "key.down":
+                    if branch[1] == "down":
                         branch[1] = Key.down
 
-                    if branch[1] == "key.left":
+                    if branch[1] == "left":
                         branch[1] = Key.left
 
-                    if branch[1] == "key.right":
+                    if branch[1] == "right":
                         branch[1] = Key.right
 
-                    if branch[1] == "key.f1":
+                    if branch[1] == "f1":
                         branch[1] = Key.f1
 
-                    if branch[1] == "key.f2":
+                    if branch[1] == "f2":
                         branch[1] = Key.f2
 
-                    if branch[1] == "key.f3":
+                    if branch[1] == "f3":
                         branch[1] = Key.f3
 
-                    if branch[1] == "key.f4":
+                    if branch[1] == "f4":
                         branch[1] = Key.f4
 
-                    if branch[1] == "key.f5":
+                    if branch[1] == "f5":
                         branch[1] = Key.f5
 
-                    if branch[1] == "key.f6":
+                    if branch[1] == "f6":
                         branch[1] = Key.f6
 
-                    if branch[1] == "key.f7":
+                    if branch[1] == "f7":
                         branch[1] = Key.f7
 
-                    if branch[1] == "key.f8":
+                    if branch[1] == "f8":
                         branch[1] = Key.f8
 
-                    if branch[1] == "key.f9":
+                    if branch[1] == "f9":
                         branch[1] = Key.f9
 
-                    if branch[1] == "key.f10":
+                    if branch[1] == "f10":
                         branch[1] = Key.f10
 
-                    if branch[1] == "key.f11":
+                    if branch[1] == "f11":
                         branch[1] = Key.f11
 
-                    if branch[1] == "key.f12":
+                    if branch[1] == "f12":
                         branch[1] = Key.f12
 
                     convert(branch)
