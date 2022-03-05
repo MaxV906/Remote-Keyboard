@@ -25,6 +25,38 @@ def convert(branch):
     if branch[0].upper() == "SLEEP":
         sleep(int(branch[1]))
 
+def get_key(key):
+
+    switcher = {
+        "shift": Key.shift,
+        "alt": Key.alt,
+        "cmd": Key.cmd,
+        "ctrl": Key.ctrl,
+        "tab": Key.tab,
+        "esc": Key.esc,
+        "enter": Key.enter,
+        "backspace": Key.backspace,
+        "delete": Key.delete,
+        "up": Key.up,
+        "down": Key.down,
+        "left": Key.left,
+        "right": Key.right,
+        "f1": Key.f1,
+        "f2": Key.f2,
+        "f3": Key.f3,
+        "f4": Key.f4,
+        "f5": Key.f5,
+        "f6": Key.f6,
+        "f7": Key.f7,
+        "f8": Key.f8,
+        "f9": Key.f9,
+        "f10": Key.f10,
+        "f11": Key.f11,
+        "f12": Key.f12
+    }
+
+    return switcher.get(key, None)
+
 ip = "0.0.0.0"
 port = 1234
 s = socket.socket()
@@ -62,80 +94,10 @@ while True:
 
                         if len(branch[1]) > 1 or len(branch[1]) < 1:
 
-                            if branch[1] == "shift":
-                                branch[1] = Key.shift
+                            key = get_key(branch[1])
 
-                            elif branch[1] == "alt":
-                                branch[1] = Key.alt
-
-                            elif branch[1] == "cmd":
-                                branch[1] = Key.cmd
-                            
-                            elif branch[1] == "ctrl":
-                                branch[1] = Key.ctrl
-
-                            elif branch[1] == "tab":
-                                branch[1] = Key.tab
-
-                            elif branch[1] == "esc":
-                                branch[1] = Key.esc
-
-                            elif branch[1] == "enter":
-                                branch[1] = Key.enter
-
-                            elif branch[1] == "backspace":
-                                branch[1] = Key.backspace
-
-                            elif branch[1] == "del":
-                                branch[1] = Key.delete
-
-                            elif branch[1] == "up":
-                                branch[1] = Key.up
-                            
-                            elif branch[1] == "down":
-                                branch[1] = Key.down
-
-                            elif branch[1] == "left":
-                                branch[1] = Key.left
-
-                            elif branch[1] == "right":
-                                branch[1] = Key.right
-
-                            elif branch[1] == "f1":
-                                branch[1] = Key.f1
-
-                            elif branch[1] == "f2":
-                                branch[1] = Key.f2
-
-                            elif branch[1] == "f3":
-                                branch[1] = Key.f3
-
-                            elif branch[1] == "f4":
-                                branch[1] = Key.f4
-
-                            elif branch[1] == "f5":
-                                branch[1] = Key.f5
-
-                            elif branch[1] == "f6":
-                                branch[1] = Key.f6
-
-                            elif branch[1] == "f7":
-                                branch[1] = Key.f7
-
-                            elif branch[1] == "f8":
-                                branch[1] = Key.f8
-
-                            elif branch[1] == "f9":
-                                branch[1] = Key.f9
-
-                            elif branch[1] == "f10":
-                                branch[1] = Key.f10
-
-                            elif branch[1] == "f11":
-                                branch[1] = Key.f11
-
-                            elif branch[1] == "f12":
-                                branch[1] = Key.f12
+                            if key != None:
+                                branch[1] = key
 
                             else:
                                 data_branches.remove(branch)
