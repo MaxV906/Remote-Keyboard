@@ -1,5 +1,4 @@
 import socket
-import pynput
 from time import sleep
 from pynput.keyboard import Key, Controller
 
@@ -7,8 +6,10 @@ keyboard = Controller()
 
 def convert(branch):
 
-    sep = "__"
-    
+    if branch[0].upper() == "TAP":
+        keyboard.press(branch[1])
+        keyboard.release(branch[1])
+
     if branch[0].upper() == "PRESS":
         keyboard.press(branch[1])
 
@@ -16,9 +17,10 @@ def convert(branch):
         keyboard.release(branch[1])
 
     if branch[0].upper() == "TYPE":
-        if sep in branch[1]:
-            branch[1] = branch[1].replace(sep, " ")
-        for char in branch[1]:
+        string_ = branch
+        string_.pop(0)
+        string_ = " ".join(string_)
+        for char in string_:
             keyboard.press(char)
             keyboard.release(char)
 
@@ -87,12 +89,9 @@ while True:
 
                 for branch in data_branches:
 
-                    if len(branch) > 2 or len(branch) < 2:
-                        data_branches.remove(branch)
+                    if len(branch) > 1:
 
-                    else:
-
-                        if len(branch[1]) > 1 or len(branch[1]) < 1:
+                        if branch[0].upper() != "TYPE":
 
                             key = get_key(branch[1])
 
@@ -102,5 +101,8 @@ while True:
                             else:
                                 data_branches.remove(branch)
 
-                            convert(branch)
+                        convert(branch)
+
+                    else:
+                        data_branches.remove(branch)
 
