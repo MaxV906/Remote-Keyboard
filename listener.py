@@ -32,7 +32,7 @@ def get_key(key):
     switcher = {
         "shift": Key.shift,
         "alt": Key.alt,
-        "cmd": Key.cmd,
+        "cmd": Key.cmd_r,
         "ctrl": Key.ctrl,
         "tab": Key.tab,
         "esc": Key.esc,
